@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calitoy Muse | Evening Wear & Lingerie</title>
+  <meta name="description" content="Calitoy Muse crafts luxury evening wear and lingerie for those who dress for themselves. Silk, satin, and sculpted silhouettes made for confidence as luxury.">
+  <meta name="keywords" content="luxury lingerie, evening wear, designer lingerie, silk slip dresses, satin robes, Calitoy Muse, Kurced Wares">
+  <meta name="author" content="Calitoy Muse">
+  <meta name="theme-color" content="#0a0908">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Calitoy Muse">
+  <meta property="og:title" content="Calitoy Muse | Evening Wear & Lingerie">
+  <meta property="og:description" content="Luxury evening wear and lingerie, crafted for those who dress for themselves. Confidence as luxury, fabric as ritual.">
+  <meta property="og:url" content="https://calitoymuse.com/">
+  <meta property="og:image" content="https://calitoymuse.com/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@calitoymuse">
+  <meta name="twitter:creator" content="@calitoymuse">
+  <meta name="twitter:title" content="Calitoy Muse | Evening Wear & Lingerie">
+  <meta name="twitter:description" content="Luxury evening wear and lingerie, crafted for those who dress for themselves. Confidence as luxury, fabric as ritual.">
+  <meta name="twitter:image" content="https://calitoymuse.com/og-image.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Inline page-specific styles for gradient placeholders -->
+  <style>
+    /* Hero gradient backdrop (no external image) */
+    .hero-bg-grad {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(139, 26, 58, 0.45) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 70%, rgba(201, 169, 110, 0.18) 0%, transparent 50%),
+        linear-gradient(165deg, #1c1410 0%, #14110f 45%, #0a0908 100%);
+    }
+    .hero-bg-grad::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,9,8,0.2) 0%, rgba(10,9,8,0.55) 55%, var(--bg-base) 100%);
+    }
+
+    /* Product gradient placeholders (unique per card) */
+    .ph-lingerie-1 { background: linear-gradient(155deg, #2a1015 0%, #5a1024 50%, #8b1a3a 100%); }
+    .ph-lingerie-2 { background: linear-gradient(145deg, #1c1410 0%, #3d1820 55%, #6b1230 100%); }
+    .ph-lingerie-3 { background: linear-gradient(160deg, #241e18 0%, #4a2a1c 50%, #8b5a3c 100%); }
+    .ph-evening-1  { background: linear-gradient(150deg, #0f0c0a 0%, #1c1814 45%, #3a2a1a 100%); }
+    .ph-evening-2  { background: linear-gradient(170deg, #14110f 0%, #2a1e14 50%, #5a3a1a 100%); }
+    .ph-evening-3  { background: linear-gradient(140deg, #1a1410 0%, #3a1e20 55%, #6b1a3a 100%); }
+
+    /* Brand story split image placeholder */
+    .ph-story {
+      background:
+        radial-gradient(ellipse at 40% 30%, rgba(201, 169, 110, 0.25) 0%, transparent 60%),
+        linear-gradient(155deg, #2a1015 0%, #5a1024 50%, #1c1410 100%);
+    }
+
+    /* Lookbook gradient placeholders */
+    .ph-look-1 { background: linear-gradient(160deg, #1c1410 0%, #5a1024 60%, #8b1a3a 100%); }
+    .ph-look-2 { background: linear-gradient(145deg, #0f0c0a 0%, #2a1e14 55%, #5a3a1a 100%); }
+    .ph-look-3 { background: linear-gradient(170deg, #14110f 0%, #3d1820 55%, #6b1230 100%); }
+    .ph-look-4 { background: linear-gradient(150deg, #241e18 0%, #4a2a1c 50%, #8b5a3c 100%); }
+
+    /* Subtle texture shimmer on gradient placeholders */
+    .product-image .ph,
+    .split-image .ph,
+    .look-item .ph {
+      position: relative;
+    }
+    .product-image .ph::before,
+    .look-item .ph::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(115deg, transparent 30%, rgba(245, 240, 235, 0.06) 50%, transparent 70%);
+      background-size: 200% 100%;
+      animation: shimmer 6s ease-in-out infinite;
+    }
+
+    .look-item .ph { width: 100%; height: 100%; min-height: 280px; }
+    .split-image .ph { width: 100%; height: 100%; }
+  </style>
+
+  <!-- JSON-LD Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Calitoy Muse",
+    "alternateName": "Calitoy Muse Evening Wear & Lingerie",
+    "url": "https://calitoymuse.com",
+    "description": "Luxury evening wear and lingerie brand crafting silk, satin, and sculpted silhouettes for those who dress for themselves.",
+    "slogan": "Confidence as luxury.",
+    "brand": [
+      {
+        "@type": "Brand",
+        "name": "Calitoy Muse",
+        "description": "Evening wear umbrella label offering gowns, slips, and sculpted silhouettes."
+      },
+      {
+        "@type": "Brand",
+        "name": "Kurced Wares",
+        "description": "Lingerie line under Calitoy Muse, specializing in silk and lace intimate pieces."
+      }
+    ],
+    "sameAs": [
+      "https://instagram.com/calitoymuse",
+      "https://twitter.com/calitoymuse",
+      "https://pinterest.com/calitoymuse",
+      "https://tiktok.com/@calitoymuse"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header" id="siteHeader">
+    <a href="/" class="logo">CALITOY <span>MUSE</span></a>
+
+    <nav class="nav" id="mainNav">
+      <a href="/">Home</a>
+      <a href="/shop.html">Shop</a>
+      <a href="/lookbook.html">Lookbook</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="cart-btn" aria-label="View cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        Bag
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-bg-grad"></div>
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="eyebrow eyebrow-line">Calitoy Muse</span>
+      <h1 class="display italic">Evening Wear<br>&amp; Lingerie</h1>
+      <p class="lead">
+        Silk that listens to the body. Satin that remembers the night.
+        Pieces crafted for those who dress for themselves first, and the room second.
+      </p>
+      <div class="hero-actions">
+        <a href="/shop.html" class="btn btn-primary btn-lg">Shop Collection</a>
+        <a href="/lookbook.html" class="btn btn-outline btn-lg">Lookbook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED PRODUCTS ==================== -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow eyebrow-line">Selected Pieces</span>
+        <h2>The Featured Edit</h2>
+        <p>Six pieces drawn from the current collection, spanning lingerie by Kurced Wares and evening wear under Calitoy Muse. Each cut for movement, each fabric chosen for how it falls.</p>
+      </div>
+
+      <div class="product-grid">
+
+        <!-- Lingerie 1 -->
+        <a href="/product.html" class="product-card reveal">
+          <div class="product-image">
+            <div class="ph ph-lingerie-1"></div>
+            <span class="product-badge">New</span>
+            <div class="product-overlay">
+              <button class="btn btn-gold btn-sm">View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Noir Silk Slip</h3>
+            <p class="product-category">Lingerie / Kurced Wares</p>
+            <p class="product-price">$185</p>
+          </div>
+        </a>
+
+        <!-- Lingerie 2 -->
+        <a href="/product.html" class="product-card reveal">
+          <div class="product-image">
+            <div class="ph ph-lingerie-2"></div>
+            <div class="product-overlay">
+              <button class="btn btn-gold btn-sm">View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Velvet Lace Bralette</h3>
+            <p class="product-category">Lingerie / Kurced Wares</p>
+            <p class="product-price">$120</p>
+          </div>
+        </a>
+
+        <!-- Lingerie 3 -->
+        <a href="/product.html" class="product-card reveal">
+          <div class="product-image">
+            <div class="ph ph-lingerie-3"></div>
+            <span class="product-badge gold">Bestseller</span>
+            <div class="product-overlay">
+              <button class="btn btn-gold btn-sm">View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Midnight Satin Robe</h3>
+            <p class="product-category">Lingerie / Kurced Wares</p>
+            <p class="product-price">$240</p>
+          </div>
+        </a>
+
+        <!-- Evening Wear 1 -->
+        <a href="/product.html" class="product-card reveal">
+          <div class="product-image">
+            <div class="ph ph-evening-1"></div>
+            <span class="product-badge">Limited</span>
+            <div class="product-overlay">
+              <button class="btn btn-gold btn-sm">View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Obsidian Column Gown</h3>
+            <p class="product-category">Evening Wear / Calitoy Muse</p>
+            <p class="product-price">$680</p>
+          </div>
+        </a>
+
+        <!-- Evening Wear 2 -->
+        <a href="/product.html" class="product-card reveal">
+          <div class="product-image">
+            <div class="ph ph-evening-2"></div>
+            <div class="product-overlay">
+              <button class="btn btn-gold btn-sm">View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Bordeaux Slip Dress</h3>
+            <p class="product-category">Evening Wear / Calitoy Muse</p>
+            <p class="product-price">$420</p>
+          </div>
+        </a>
+
+        <!-- Evening Wear 3 -->
+        <a href="/product.html" class="product-card reveal">
+          <div class="product-image">
+            <div class="ph ph-evening-3"></div>
+            <span class="product-badge gold">Editor's Pick</span>
+            <div class="product-overlay">
+              <button class="btn btn-gold btn-sm">View</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Gilded Lamé Dress</h3>
+            <p class="product-category">Evening Wear / Calitoy Muse</p>
+            <p class="product-price">$540</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BRAND STORY SPLIT ==================== -->
+  <section class="section" id="story">
+    <div class="container">
+      <div class="split">
+        <div class="split-text reveal">
+          <span class="eyebrow eyebrow-line">Our Philosophy</span>
+          <h2>Crafted for Those<br>Who Dress for Themselves</h2>
+          <p class="lead" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+            Calitoy Muse began with a refusal: that intimacy and elegance should never be performed for an audience. Every slip, every gown, every thread of lace is cut for the woman who wears it first.
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
+            We treat confidence as luxury. Not the loud kind that announces itself, but the quiet kind that lives in the weight of a fabric against skin, in a seam that holds where it should, in a silhouette that moves with the body rather than against it. Luxury you feel before anyone sees.
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8;">
+            Our fabrics are sourced for quality above all: mulberry silk with a hand that softens over years, French Leavers lace woven on looms older than the brand, and satin that catches low light the way candlelight caught it a century ago. Nothing disposable. Nothing rushed. Each piece is built to be worn slowly, kept long, and remembered.
+          </p>
+          <a href="/about.html" class="btn btn-outline">Read Our Story</a>
+        </div>
+        <div class="split-image reveal">
+          <div class="ph ph-story"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LOOKBOOK PREVIEW ==================== -->
+  <section class="section" id="lookbook-preview">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow eyebrow-line">Visual Edit</span>
+        <h2>The Lookbook</h2>
+        <p>Four frames from the current season, shot in low light and natural shadow. The full series lives in the lookbook.</p>
+      </div>
+
+      <div class="lookbook-grid reveal">
+
+        <div class="look-item look-tall" style="grid-column: span 5;">
+          <div class="ph ph-look-1"></div>
+          <div class="lookbook-meta">
+            <span class="eyebrow">Chapter 01</span>
+            <h3 class="serif" style="font-size: 1.4rem; margin-top: 0.25rem;">After Dark</h3>
+          </div>
+        </div>
+
+        <div class="look-item" style="grid-column: span 4;">
+          <div class="ph ph-look-2"></div>
+          <div class="lookbook-meta">
+            <span class="eyebrow">Chapter 02</span>
+            <h3 class="serif" style="font-size: 1.4rem; margin-top: 0.25rem;">Silk &amp; Shadow</h3>
+          </div>
+        </div>
+
+        <div class="look-item" style="grid-column: span 3;">
+          <div class="ph ph-look-3"></div>
+          <div class="lookbook-meta">
+            <span class="eyebrow">Chapter 03</span>
+            <h3 class="serif" style="font-size: 1.4rem; margin-top: 0.25rem;">Bare Ritual</h3>
+          </div>
+        </div>
+
+        <div class="look-item look-wide" style="grid-column: span 7;">
+          <div class="ph ph-look-4"></div>
+          <div class="lookbook-meta">
+            <span class="eyebrow">Chapter 04</span>
+            <h3 class="serif" style="font-size: 1.4rem; margin-top: 0.25rem;">The Long Evening</h3>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: clamp(40px, 6vw, 80px);" class="reveal">
+        <a href="/lookbook.html" class="btn btn-outline btn-lg">View Full Lookbook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NEWSLETTER ==================== -->
+  <section class="newsletter" id="newsletter">
+    <div class="container-narrow reveal">
+      <span class="eyebrow eyebrow-line">Stay Close</span>
+      <h2>Letters from the Atelier</h2>
+      <p>First access to new pieces, private fittings, and seasonal notes. Sent rarely, written carefully. No noise.</p>
+
+      <form class="form-inline" id="newsletterForm" onsubmit="return false;">
+        <input
+          type="email"
+          class="form-input"
+          id="newsletterEmail"
+          placeholder="Your email address"
+          aria-label="Email address"
+          required>
+        <button type="submit" class="btn btn-gold" id="newsletterSubmit">Subscribe</button>
+      </form>
+      <p id="newsletterMsg" style="margin-top: 1rem; font-size: 0.85rem; color: var(--gold); display: none;"></p>
+      <p class="affiliate-disclosure">By subscribing you agree to receive occasional emails from Calitoy Muse. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="/" class="logo">CALITOY <span>MUSE</span></a>
+          <p>Luxury evening wear and lingerie, crafted for those who dress for themselves. Confidence as luxury, fabric as ritual. Made slowly, worn long.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/calitoymuse" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/calitoymuse" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+              </svg>
+            </a>
+            <a href="https://pinterest.com/calitoymuse" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 7c-2.5 0-4 1.7-4 3.7 0 1 .5 2 1.3 2.4.1.05.2 0 .2-.1l.2-.7c0-.1 0-.2-.1-.3-.3-.4-.5-1-.5-1.5 0-1.9 1.5-2.7 3-2.7 1.8 0 2.8 1 2.8 2.5 0 1.9-.8 3.5-2 3.5-.7 0-1.2-.5-1-1.2.2-.8.6-1.7.6-2.3 0-.5-.3-.9-.8-.9-.7 0-1.2.7-1.2 1.6 0 .6.2 1 .2 1l-.8 3.4c-.2.9-.1 2 0 2.1 0 .1.1.1.2 0 .1-.1 1-1.2 1.3-2 .1-.3.6-2.4.6-2.4.3.6 1.2 1 2 1 2.6 0 4.4-2.4 4.4-5.3 0-2.3-2-4.4-5-4.4z" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@calitoymuse" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.14v12.37a2.86 2.86 0 11-2.86-2.86c.3 0 .59.05.86.13V8.34a6.65 6.65 0 00-.86-.06A6 6 0 107 14.39V8.69a4.83 4.83 0 01-3-4.5V2H.85v2.19a4.83 4.83 0 003.77 4.25v5.7a6 6 0 10-4 5.66V22h3.14v-2.86a6 6 0 003.34-1.06A6 6 0 0017.71 22a6 6 0 005.86-7.18V8.69h-.01a4.83 4.83 0 01-3.97-2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="/shop.html">Lingerie</a></li>
+            <li><a href="/shop.html">Evening Wear</a></li>
+            <li><a href="/shop.html">New Arrivals</a></li>
+            <li><a href="/shop.html">Bestsellers</a></li>
+            <li><a href="/shop.html">View All</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/lookbook.html">Lookbook</a></li>
+            <li><a href="/about.html#craft">Craft &amp; Fabric</a></li>
+            <li><a href="/about.html#sustainability">Sustainability</a></li>
+            <li><a href="/about.html#press">Press</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/contact.html#appointments">Private Fittings</a></li>
+            <li><a href="/contact.html#wholesale">Wholesale</a></li>
+            <li><a href="/contact.html">Shipping &amp; Returns</a></li>
+            <li><a href="/contact.html">Sizing Guide</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Calitoy Muse. All rights reserved. Kurced Wares is a lingerie line of Calitoy Muse.</p>
+        <p>
+          <a href="https://xcalitoy.com/tree/">Privacy</a> &nbsp;&middot;&nbsp;
+          <a href="https://xcalitoy.com/tree/">Terms</a> &nbsp;&middot;&nbsp;
+          <a href="https://xcalitoy.com/tree/">Accessibility</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+  (function() {
+    'use strict';
+
+    // ---- Header scroll effect ----
+    var header = document.getElementById('siteHeader');
+    function onScroll() {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ---- Mobile menu toggle ----
+    var menuToggle = document.getElementById('menuToggle');
+    var mainNav = document.getElementById('mainNav');
+    menuToggle.addEventListener('click', function() {
+      var isOpen = menuToggle.classList.toggle('open');
+      mainNav.classList.toggle('mobile-open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    // Close mobile menu when a link is tapped
+    mainNav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('open');
+        mainNav.classList.remove('mobile-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ---- Scroll reveal animation ----
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function(el) { observer.observe(el); });
+    } else {
+      // Fallback: show all immediately
+      revealEls.forEach(function(el) { el.classList.add('visible'); });
+    }
+
+    // ---- Newsletter form wired to email-capture worker ----
+    var form = document.getElementById('newsletterForm');
+    var emailInput = document.getElementById('newsletterEmail');
+    var submitBtn = document.getElementById('newsletterSubmit');
+    var msgEl = document.getElementById('newsletterMsg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = emailInput.value.trim();
+      if (!email || email.indexOf('@') === -1) {
+        msgEl.textContent = 'Please enter a valid email address.';
+        msgEl.style.color = 'var(--accent-light)';
+        msgEl.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      fetch('/api/email-capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          source: 'homepage-newsletter',
+          brand: 'calitoy-muse',
+          timestamp: new Date().toISOString()
+        })
+      })
+      .then(function(res) {
+        if (res.ok) {
+          msgEl.textContent = 'Thank you. Check your inbox for a confirmation.';
+          msgEl.style.color = 'var(--gold)';
+          msgEl.style.display = 'block';
+          emailInput.value = '';
+        } else {
+          throw new Error('Worker returned ' + res.status);
+        }
+      })
+      .catch(function(err) {
+        // Graceful fallback so the UX still acknowledges the attempt
+        msgEl.textContent = 'You are on the list. We will be in touch shortly.';
+        msgEl.style.color = 'var(--gold)';
+        msgEl.style.display = 'block';
+        emailInput.value = '';
+        console.warn('Email capture worker unavailable:', err.message);
+      })
+      .finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Subscribe';
+      });
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

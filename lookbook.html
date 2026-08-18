@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lookbook / Season One | Calitoy Muse</title>
+<meta name="description" content="The debut collection from Calitoy Muse. Eight looks of evening wear and lingerie, composed in shadow, wine, and gold.">
+<link rel="canonical" href="https://calitoymuse.com/lookbook.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lookbook / Season One | Calitoy Muse">
+<meta property="og:description" content="The debut collection from Calitoy Muse. Eight looks of evening wear and lingerie, composed in shadow, wine, and gold.">
+<meta property="og:url" content="https://calitoymuse.com/lookbook.html">
+<meta property="og:site_name" content="Calitoy Muse">
+<meta property="og:image" content="https://calitoymuse.com/og-lookbook.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lookbook / Season One | Calitoy Muse">
+<meta name="twitter:description" content="The debut collection from Calitoy Muse. Eight looks of evening wear and lingerie.">
+<meta name="twitter:image" content="https://calitoymuse.com/og-lookbook.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Italiana&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+
+<style>
+  /* Lookbook page local styles */
+  .lookbook-hero {
+    padding: 140px 0 60px;
+    text-align: center;
+  }
+  .lookbook-hero .eyebrow { margin-bottom: 1.5rem; }
+  .lookbook-hero h1 { margin-bottom: 1rem; }
+  .lookbook-hero .lead { max-width: 560px; margin: 0 auto; }
+
+  .look-faux-img {
+    position: absolute; inset: 0;
+    transition: transform 0.8s var(--t-slow);
+  }
+  .look-item:hover .look-faux-img { transform: scale(1.04); }
+
+  .look-num {
+    position: absolute; top: 14px; left: 14px;
+    font-family: var(--font-mono); font-size: 0.65rem;
+    letter-spacing: 0.2em; color: var(--gold);
+    background: rgba(10,9,8,0.6); padding: 4px 10px;
+    border: 1px solid var(--line); z-index: 3;
+  }
+
+  .look-meta-title {
+    font-family: var(--font-display); font-size: 1.3rem; font-weight: 500;
+    color: var(--text-primary); margin-bottom: 6px;
+  }
+  .look-meta-desc {
+    font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;
+  }
+
+  .quote-section {
+    text-align: center; padding: clamp(60px, 10vw, 120px) 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: var(--bg-surface);
+  }
+  .quote-section blockquote {
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.4;
+    color: var(--text-primary); max-width: 760px; margin: 0 auto 1.5rem;
+  }
+  .quote-section cite {
+    font-style: normal; font-size: 0.75rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+  }
+
+  /* Asymmetric grid spans */
+  .look-1 { grid-column: span 4; grid-row: span 2; }
+  .look-2 { grid-column: span 4; grid-row: span 1; }
+  .look-3 { grid-column: span 4; grid-row: span 1; }
+  .look-4 { grid-column: span 4; grid-row: span 1; }
+  .look-5 { grid-column: span 8; grid-row: span 1; }
+  .look-6 { grid-column: span 4; grid-row: span 2; }
+  .look-7 { grid-column: span 4; grid-row: span 1; }
+  .look-8 { grid-column: span 4; grid-row: span 1; }
+
+  .look-item {
+    aspect-ratio: 4 / 5;
+    min-height: 280px;
+  }
+  .look-1, .look-6 { aspect-ratio: 3 / 4; min-height: 0; }
+  .look-5 { aspect-ratio: 16 / 7; min-height: 220px; }
+  .look-2, .look-3, .look-4, .look-7, .look-8 { aspect-ratio: 1 / 1; }
+
+  @media (max-width: 960px) {
+    .lookbook-grid { grid-template-columns: repeat(6, 1fr); }
+    .look-1 { grid-column: span 6; grid-row: span 1; aspect-ratio: 3/4; }
+    .look-2, .look-3, .look-4, .look-7, .look-8 { grid-column: span 3; aspect-ratio: 1/1; }
+    .look-5 { grid-column: span 6; aspect-ratio: 16/9; }
+    .look-6 { grid-column: span 6; grid-row: span 1; aspect-ratio: 3/4; }
+  }
+  @media (max-width: 560px) {
+    .look-2, .look-3, .look-4, .look-7, .look-8 { grid-column: span 6; }
+  }
+
+  .lookbook-meta { padding: 1.75rem 1.5rem 1.5rem; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header" id="siteHeader">
+  <a href="/" class="logo">Calitoy <span>Muse</span><small>Evening Wear &amp; Lingerie</small></a>
+  <nav class="nav" id="mainNav">
+    <a href="/">Home</a>
+    <a href="/shop.html">Shop</a>
+    <a href="/lookbook.html">Lookbook</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+  <div class="header-actions">
+    <a href="/shop.html" class="btn btn-ghost btn-sm">Shop</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="container">
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>/</span>Lookbook
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="lookbook-hero">
+  <div class="container">
+    <span class="eyebrow eyebrow-line">The Debut Collection</span>
+    <h1>Lookbook <span class="italic muted">/</span> Season One</h1>
+    <p class="lead">Eight looks composed in shadow, wine, and gold. The first chapter of Calitoy Muse: evening wear and lingerie cut for the body that refuses to be ignored, photographed in the half-light between dusk and disclosure.</p>
+  </div>
+</section>
+
+<!-- Asymmetric Grid (looks 1-4) -->
+<section class="section-tight">
+  <div class="container">
+    <div class="lookbook-grid">
+
+      <!-- Look 1 - tall -->
+      <article class="look-item look-1 reveal">
+        <span class="look-num">Look 01</span>
+        <div class="look-faux-img" style="background: linear-gradient(155deg, #2a0e16 0%, #5a1024 45%, #8b1a3a 75%, #0a0908 100%);"></div>
+        <div class="lookbook-meta">
+          <div class="look-meta-title">Nocturne in Wine</div>
+          <p class="look-meta-desc">A floor-length slip in mulberry silk charmeuse, cut on the bias so it clings and releases with every step. Lace trim at the hem, hand-finished in old gold thread.</p>
+        </div>
+      </article>
+
+      <!-- Look 2 - square -->
+      <article class="look-item look-2 reveal">
+        <span class="look-num">Look 02</span>
+        <div class="look-faux-img" style="background: radial-gradient(circle at 30% 30%, #c9a96e 0%, #8a7449 35%, #241e18 75%, #0a0908 100%);"></div>
+        <div class="lookbook-meta">
+          <div class="look-meta-title">Gilded Hour</div>
+          <p class="look-meta-desc">A bralette and high-waisted brief set in antique gold mesh, embroidered with a constellation of seed pearls across the ribs.</p>
+        </div>
+      </article>
+
+      <!-- Look 3 - square -->
+      <article class="look-item look-3 reveal">
+        <span class="look-num">Look 03</span>
+        <div class="look-faux-img" style="background: linear-gradient(180deg, #1c1814 0%, #3a1a22 40%, #8b1a3a 80%, #0a0908 100%);"></div>
+        <div class="lookbook-meta">
+          <div class="look-meta-title">Ember</div>
+          <p class="look-meta-desc">A long-line corset in deep oxblood satin, boned in steel and laced up the back. Worn here over a sheer chiffon skirt.</p>
+        </div>
+      </article>
+
+      <!-- Look 4 - square -->
+      <article class="look-item look-4 reveal">
+        <span class="look-num">Look 04</span>
+        <div class="look-faux-img" style="background: linear-gradient(135deg, #d4b896 0%, #c67b7b 50%, #5a1024 100%);"></div>
+        <div class="lookbook-meta">
+          <div class="look-meta-title">Nude &amp; Rose</div>
+          <p class="look-meta-desc">A soft-cup bra and tap short in nude silk, layered under a rose-toned robe of sheer organza that trails to the floor.</p>
+        </div>
+      </article>
+
+      <!-- Look 5 - wide -->
+      <article class="look-item look-5 reveal">
+        <span class="look-num">Look 05</span>
+        <div class="look-faux-img" style="background: linear-gradient(90deg, #0a0908 0%, #241e18 20%, #5a1024 50%, #8b1a3a 70%, #0a0908 100%);"></div>
+        <div class="lookbook-meta">
+          <div class="look-meta-title">The Long Goodbye</div>
+          <p class="look-meta-desc">A backless gown in jet black velvet, slit to the upper thigh, with a train that sweeps a full metre behind. Photographed in motion against bare plaster.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Quote Section -->
+<section class="quote-section">
+  <div class="container">
+    <blockquote>
+      &ldquo;Lingerie is not what you take off. It is what you keep on when the room has emptied and the candles are low.&rdquo;
+    </blockquote>
+    <cite>Joseph Calitoy, Creative Director</cite>
+  </div>
+</section>
+
+<!-- Asymmetric Grid (looks 6-8) -->
+<section class="section-tight">
+  <div class="container">
+    <div class="lookbook-grid">
+
+      <!-- Look 6 - tall -->
+      <article class="look-item look-6 reveal">
+        <span class="look-num">Look 06</span>
+        <div class="look-faux-img" style="background: linear-gradient(200deg, #0a0908 0%, #14110f 30%, #2a0e16 60%, #8b1a3a 100%);"></div>
+        <div class="lookbook-meta">
+          <div class="look-meta-title">Vespers</div>
+          <p class="look-meta-desc">A chemise in smoke-grey silk with a deep lace yoke, photographed against a window at the hour the sky turns the colour of a bruise.</p>
+        </div>
+      </article>
+
+      <!-- Look 7 - square -->
+      <article class="look-item look-7 reveal">
+        <span class="look-num">Look 07</span>
+        <div class="look-faux-img" style="background: linear-gradient(45deg, #c9a96e 0%, #d4b896 30%, #8a7449 60%, #241e18 100%);"></div>
+        <div class="lookbook-meta">
+          <div class="look-meta-title">Aureate</div>
+          <p class="look-meta-desc">A bustier in gold brocade with a boned bodice and a peplum hem, paired with matching high-cut briefs. The collection&rsquo;s most architectural piece.</p>
+        </div>
+      </article>
+
+      <!-- Look 8 - square -->
+      <article class="look-item look-8 reveal">
+        <span class="look-num">Look 08</span>
+        <div class="look-faux-img" style="background: radial-gradient(ellipse at 70% 40%, #c67b7b 0%, #8b1a3a 40%, #2a0e16 75%, #0a0908 100%);"></div>
+        <div class="lookbook-meta">
+          <div class="look-meta-title">Last Light</div>
+          <p class="look-meta-desc">A wrap robe in dusty rose velvet over a sheer teddy, belted at the waist with a self-fabric tie. The closing look of Season One.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="container">
+    <span class="eyebrow">Stay Close</span>
+    <h2>Join the inner circle</h2>
+    <p>First access to new looks, private fittings, and the Season Two preview. No noise, only the collection.</p>
+    <form class="form-inline" data-source="calitoymuse" data-wired="1">
+      <input type="email" name="email" class="form-input" placeholder="Your email address" required>
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">Calitoy <span>Muse</span></a>
+        <p>Luxury evening wear and lingerie, designed in San Diego and made in limited runs. For the body that refuses to be ignored.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 20c0-2 1-4 2-6m4-8c-3 0-5 2-5 4s2 3 4 3"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="/shop.html">All Pieces</a></li>
+          <li><a href="/shop.html">Evening Wear</a></li>
+          <li><a href="/shop.html">Lingerie</a></li>
+          <li><a href="/shop.html">Robes &amp; Slips</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Maison</h4>
+        <ul>
+          <li><a href="/about.html">Our Story</a></li>
+          <li><a href="/lookbook.html">Lookbook</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/contact.html">Private Fittings</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Care</h4>
+        <ul>
+          <li><a href="/contact.html">Sizing Guide</a></li>
+          <li><a href="/contact.html">Shipping</a></li>
+          <li><a href="/contact.html">Returns</a></li>
+          <li><a href="/contact.html">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Calitoy Muse. All rights reserved.</span>
+      <span>San Diego, California</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll header
+  (function() {
+    var header = document.getElementById('siteHeader');
+    function onScroll() {
+      if (window.scrollY > 40) { header.classList.add('scrolled'); }
+      else { header.classList.remove('scrolled'); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Mobile menu
+  (function() {
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', function() {
+      toggle.classList.toggle('open');
+      nav.classList.toggle('mobile-open');
+    });
+    nav.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        toggle.classList.remove('open');
+        nav.classList.remove('mobile-open');
+      });
+    });
+  })();
+
+  // Reveal on scroll
+  (function() {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function(el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(function(el) { io.observe(el); });
+  })();
+
+  // Newsletter form -> email-capture worker
+  document.querySelectorAll('form[data-source="calitoymuse"]').forEach(function(form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var emailInput = form.querySelector('input[type=email]');
+      if (!emailInput || !emailInput.value) { alert('Please enter your email.'); return; }
+      var btn = form.querySelector('button[type=submit]') || form.querySelector('button');
+      var orig = btn ? btn.textContent : '';
+      if (btn) { btn.textContent = '...'; btn.disabled = true; }
+      try {
+        var r = await fetch('https://email-capture.calitoy.workers.dev', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emailInput.value, name: '', phone: '', source: 'calitoymuse' })
+        });
+        var d = await r.json();
+        if (d.success) {
+          form.innerHTML = '<p style="text-align:center;padding:20px;font-family:var(--font-display);font-size:1.2rem;color:var(--gold);">You are in.</p>';
+        } else {
+          alert(d.error || 'Something went wrong.');
+          if (btn) { btn.textContent = orig; btn.disabled = false; }
+        }
+      } catch (err) {
+        alert('Network error.');
+        if (btn) { btn.textContent = orig; btn.disabled = false; }
+      }
+    });
+  });
+</script>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Lookbook / Season One",
+  "description": "The debut collection from Calitoy Muse. Eight looks of evening wear and lingerie, composed in shadow, wine, and gold.",
+  "url": "https://calitoymuse.com/lookbook.html",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Calitoy Muse",
+    "url": "https://calitoymuse.com/"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calitoymuse.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Lookbook", "item": "https://calitoymuse.com/lookbook.html" }
+    ]
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Season One Looks",
+    "numberOfItems": 8,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Nocturne in Wine" },
+      { "@type": "ListItem", "position": 2, "name": "Gilded Hour" },
+      { "@type": "ListItem", "position": 3, "name": "Ember" },
+      { "@type": "ListItem", "position": 4, "name": "Nude & Rose" },
+      { "@type": "ListItem", "position": 5, "name": "The Long Goodbye" },
+      { "@type": "ListItem", "position": 6, "name": "Vespers" },
+      { "@type": "ListItem", "position": 7, "name": "Aureate" },
+      { "@type": "ListItem", "position": 8, "name": "Last Light" }
+    ]
+  }
+}
+</script>
+
+</body>
+</html>

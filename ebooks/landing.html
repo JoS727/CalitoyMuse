@@ -492,7 +492,14 @@ linear-gradient(165deg,#1c1410 0%,#14110f 45%,#0a0908 100%)}
 </div>
 
 <div style="text-align:center;margin-top:40px">
-<a href="https://buy.stripe.com/calitoy" class="stripe-link">Checkout via Stripe</a>
+<div style="max-width:400px;margin:0 auto">
+<input type="email" id="memberEmail" placeholder="your@email.com" style="width:100%;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid rgba(201,169,110,0.2);color:#f5f0eb;font-family:'Inter',sans-serif;font-size:0.9rem;margin-bottom:10px;border-radius:3px;box-sizing:border-box">
+<input type="password" id="memberPassword" placeholder="Create a password" style="width:100%;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid rgba(201,169,110,0.2);color:#f5f0eb;font-family:'Inter',sans-serif;font-size:0.9rem;margin-bottom:10px;border-radius:3px;box-sizing:border-box">
+<button id="joinBtn" class="stripe-link" style="border:none;cursor:pointer;width:100%">Join The Method | $29/month</button>
+<p style="font-size:0.7rem;color:#8a7e6f;margin-top:16px">Full access to all 6 eBooks, video training, and members chat. Cancel anytime.</p>
+<p id="joinError" style="color:#c44;font-size:0.8rem;display:none;margin-top:10px"></p>
+<p style="font-size:0.7rem;margin-top:12px"><a href="/ebooks/members.html" style="color:#c9a96e">Already a member? Login here</a></p>
+</div>
 </div>
 </div>
 </section>
@@ -586,6 +593,23 @@ s.textContent='You are subscribed. Check your inbox.';
 s.classList.add('active');
 document.getElementById('emailForm').reset();
 });
+});
+// Membership signup
+document.getElementById('joinBtn').addEventListener('click',async function(e){
+e.preventDefault();
+var email=document.getElementById('memberEmail').value.trim();
+var password=document.getElementById('memberPassword').value;
+var err=document.getElementById('joinError');
+if(!email||!email.includes('@')){err.textContent='Enter a valid email';err.style.display='block';return}
+if(!password||password.length<4){err.textContent='Password must be at least 4 characters';err.style.display='block';return}
+err.style.display='none';
+this.textContent='Redirecting to checkout...';
+this.disabled=true;
+try{
+var r=await fetch('https://email-capture.calitoy.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'membership',email:email,password:password})});
+var d=await r.json();
+if(d.url){window.location.href=d.url}else{err.textContent=d.error||'Checkout failed';err.style.display='block';this.textContent='Join The Method | $29/month';this.disabled=false}
+}catch(ex){err.textContent='Network error. Try again.';err.style.display='block';this.textContent='Join The Method | $29/month';this.disabled=false}
 });
 </script>
 </body>

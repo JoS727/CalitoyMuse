@@ -414,4 +414,233 @@ var chatTimer = null;
 function track(event, data) {
   var payload = Object.assign({ event: event, url: location.href, timestamp: new Date().toISOString() }, data || {});
   try {
-    navigator.sendBeea
+    fetch(ANALYTICS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function(){});
+  } catch(e) {}
+}
+
+/* ====== LOGIN ====== */
+function doLogin() {
+  var email = document.getElementById('loginEmail').value.trim();
+  var password = document.getElementById('loginPassword').value;
+  var errEl = document.getElementById('loginError');
+  var btn = document.getElementById('loginBtn');
+
+  if (!email || !password) {
+    showError('Please enter both email and password.');
+    return;
+  }
+
+  btn.textContent = 'Signing in...';
+  btn.disabled = true;
+  errEl.classList.remove('show');
+
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: 'login', email: email, password: password })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data && (data.success === true || data.ok === true || data.member === true)) {
+      memberEmail = email;
+      sessionStorage.setItem('calitoy_member_email', email);
+      sessionStorage.setItem('calitoy_member_auth', '1');
+      showMembersArea(email);
+      track('login_success', { email: email });
+    } else {
+      var msg = (data && data.error) ? data.error : 'Login failed. Check your email and password.';
+      showError(msg);
+      track('login_failed', { email: email });
+    }
+  })
+  .catch(function(err) {
+    showError('Connection error. Please try again.');
+    track('login_error', { error: String(err) });
+  })
+  .finally(function() {
+    btn.textContent = 'Sign In';
+    btn.disabled = false;
+  });
+}
+
+function showError(msg) {
+  var el = document.getElementById('loginError');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+
+/* ====== LOGOUT ====== */
+function logout() {
+  sessionStorage.removeItem('calitoy_member_email');
+  sessionStorage.removeItem('calitoy_member_auth');
+  memberEmail = null;
+  if (chatTimer) { clearInterval(chatTimer); chatTimer = null; }
+  document.getElementById('membersArea').style.display = 'none';
+  document.getElementById('loginSection').style.display = 'flex';
+  document.getElementById('memberBadge').textContent = '';
+  document.getElementById('logoutBtn').style.display = 'none';
+  document.getElementById('loginEmail').value = '';
+  document.getElementById('loginPassword').value = '';
+  track('logout', {});
+}
+
+/* ====== SHOW MEMBERS AREA ====== */
+function showMembersArea(email) {
+  memberEmail = email;
+  document.getElementById('loginSection').style.display = 'none';
+  document.getElementById('membersArea').style.display = 'block';
+  document.getElementById('welcomeEmail').textContent = 'Signed in as ' + email;
+  document.getElementById('memberBadge').textContent = email;
+  document.getElementById('logoutBtn').style.display = 'inline-block';
+
+  /* Load chat */
+  loadChat();
+  /* Start auto-refresh */
+  if (chatTimer) { clearInterval(chatTimer); }
+  chatTimer = setInterval(loadChat, CHAT_REFRESH_INTERVAL);
+
+  track('members_area_view', { email: email });
+}
+
+/* ====== CHAT ====== */
+function loadChat() {
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: 'get-chat' })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    renderChat(data && data.messages ? data.messages : (Array.isArray(data) ? data : []));
+  })
+  .catch(function() {
+    /* Silently fail, keep existing messages */
+  });
+}
+
+function renderChat(messages) {
+  var container = document.getElementById('chatMessages');
+  if (!messages || messages.length === 0) {
+    container.innerHTML = '<div class="chat-empty">No messages yet. Be the first to start the conversation.</div>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < messages.length; i++) {
+    var msg = messages[i];
+    var email = msg.email || msg.memberEmail || 'Member';
+    var text = msg.message || msg.text || '';
+    var ts = msg.timestamp || msg.ts || msg.date || '';
+    var timeStr = formatTime(ts);
+    html += '<div class="chat-msg">' +
+      '<div class="msg-meta">' +
+        '<span class="msg-email">' + escapeHtml(email) + '</span>' +
+        '<span class="msg-time">' + timeStr + '</span>' +
+      '</div>' +
+      '<div class="msg-text">' + escapeHtml(text) + '</div>' +
+    '</div>';
+  }
+  container.innerHTML = html;
+  container.scrollTop = container.scrollHeight;
+}
+
+function formatTime(ts) {
+  if (!ts) return '';
+  try {
+    var d = new Date(ts);
+    if (isNaN(d.getTime())) return String(ts).substring(0, 20);
+    var now = new Date();
+    var diff = now - d;
+    if (diff < 60000) return 'just now';
+    if (diff < 3600000) return Math.floor(diff / 60000) + 'm ago';
+    if (diff < 86400000) return Math.floor(diff / 3600000) + 'h ago';
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  } catch(e) {
+    return String(ts).substring(0, 20);
+  }
+}
+
+function escapeHtml(str) {
+  var div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function sendChat() {
+  var input = document.getElementById('chatInput');
+  var msg = input.value.trim();
+  if (!msg) return;
+  if (!memberEmail) return;
+
+  var btn = document.getElementById('chatSend');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ type: 'chat', email: memberEmail, message: msg })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function() {
+    input.value = '';
+    loadChat();
+    track('chat_message', { email: memberEmail });
+  })
+  .catch(function() {
+    /* Still try to refresh */
+    loadChat();
+  })
+  .finally(function() {
+    btn.textContent = 'Send';
+    btn.disabled = false;
+  });
+}
+
+/* Enter key in chat input */
+document.addEventListener('DOMContentLoaded', function() {
+  var chatInput = document.getElementById('chatInput');
+  if (chatInput) {
+    chatInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendChat();
+      }
+    });
+  }
+
+  /* Enter key on login form */
+  var loginPassword = document.getElementById('loginPassword');
+  if (loginPassword) {
+    loginPassword.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        doLogin();
+      }
+    });
+  }
+  var loginEmail = document.getElementById('loginEmail');
+  if (loginEmail) {
+    loginEmail.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        doLogin();
+      }
+    });
+  }
+
+  /* Check session for existing login */
+  var savedEmail = sessionStorage.getItem('calitoy_member_email');
+  var savedAuth = sessionStorage.getItem('calitoy_member_auth');
+  if (savedEmail && savedAuth === '1') {
+    showMembersArea(savedEmail);
+  }
+
+  track('page_view', { page: 'members' });
+});
+</script>
+</body>
+</html>

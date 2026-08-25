@@ -155,7 +155,7 @@ h4 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
   text-decoration: none;
 }
 .logo span { color: var(--gold); }
-.logo-img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; margin-right: 8px; vertical-align: middle; }
+.logo-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; vertical-align: middle; }
 .footer-brand .logo-img { width: 48px; height: 48px; }
 .logo small { font-family: var(--font-body); font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); display: block; }
 
@@ -650,7 +650,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   .hero .lead { font-size: 0.95rem; margin-bottom: 1.5rem; }
   .hero-actions { gap: 0.5rem; }
   .hero-actions .btn { width: 100%; padding: 12px 24px; font-size: 0.75rem; }
-  .logo-img { width: 24px; height: 24px; }
+  .logo-img { width: 32px; height: 32px; }
   .site-header .logo { font-size: 1.1rem; }
 }
 

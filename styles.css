@@ -120,7 +120,7 @@ h4 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
   margin-right: 12px;
 }
 
-.display { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 7rem); font-weight: 500; line-height: 1; letter-spacing: -0.03em; }
+.display { font-family: var(--font-display); font-size: clamp(2.25rem, 6vw, 5.5rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.03em; }
 .italic { font-style: italic; }
 .serif { font-family: var(--font-display); }
 .mono { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -234,7 +234,7 @@ h4 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
 }
 .btn-ghost:hover { color: var(--gold); }
 
-.btn-lg { padding: 18px 40px; font-size: 0.85rem; }
+.btn-lg { padding: 14px 32px; font-size: 0.8rem; }
 .btn-sm { padding: 10px 24px; font-size: 0.7rem; }
 
 /* ==================== HERO ==================== */
@@ -645,7 +645,13 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   .look-tall { grid-row: span 1; }
 
   .product-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-  .hero { min-height: 90vh; }
+  .hero { min-height: 90vh; padding-top: 60px; }
+  .hero h1 { font-size: 2.25rem; margin-bottom: 1rem; }
+  .hero .lead { font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .hero-actions { gap: 0.5rem; }
+  .hero-actions .btn { width: 100%; padding: 12px 24px; font-size: 0.75rem; }
+  .logo-img { width: 24px; height: 24px; }
+  .site-header .logo { font-size: 1.1rem; }
 }
 
 @media (max-width: 480px) {

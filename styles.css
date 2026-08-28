@@ -155,8 +155,8 @@ h4 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
   text-decoration: none;
 }
 .logo span { color: var(--gold); }
-.logo-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; vertical-align: middle; }
-.footer-brand .logo-img { width: 48px; height: 48px; }
+.logo-img { height: 40px; width: auto; max-width: 160px; object-fit: contain; vertical-align: middle; }
+.footer-brand .logo-img { height: 48px; width: auto; max-width: 200px; }
 .logo small { font-family: var(--font-body); font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); display: block; }
 
 .nav { display: flex; align-items: center; gap: 2rem; }
@@ -650,7 +650,7 @@ textarea.form-input { min-height: 120px; resize: vertical; }
   .hero .lead { font-size: 0.95rem; margin-bottom: 1.5rem; }
   .hero-actions { gap: 0.5rem; }
   .hero-actions .btn { width: 100%; padding: 12px 24px; font-size: 0.75rem; }
-  .logo-img { width: 32px; height: 32px; }
+  .logo-img { height: 32px; max-width: 140px; }
   .site-header .logo { font-size: 1.1rem; }
 }
 
